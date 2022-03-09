@@ -12,4 +12,4 @@ Développer une application web responsive : l'accès aux applications médicale
 - Héberger/déployer les applications médicales avec un affichage des résultats en fonctin des paramètres choisis par l'utilisateur;
 - Anonymiser et chiffrer les données médicales;
 - Gérer l'accès aux applications avec des crédits "paiement à l'utilisation"'
-- Version existante sous Symfony : https://alumniumonsac-my.sharepoint.com/:v:/g/personal/530391_umons_ac_be/EeX4P4b9PD9KoaSSXpiZ3fABh92h4-waypDWgsfacm3g_g?e=Pzl5Nd
+- Version existante sous Symfony : [link](https://alumniumonsac-my.sharepoint.com/personal/530391_umons_ac_be/_layouts/15/onedrive.aspx?id=%2Fpersonal%2F530391_umons_ac_be%2FDocuments%2F0%2E%20ANCIEN%20ONE%20DRIVE%2FCLEO%2FCLEO%20Demonstrations%2Ffinal_cut%2Eavi&parent=%2Fpersonal%2F530391_umons_ac_be%2FDocuments%2F0%2E%20ANCIEN%20ONE%20DRIVE%2FCLEO%2FCLEO%20Demonstrations)

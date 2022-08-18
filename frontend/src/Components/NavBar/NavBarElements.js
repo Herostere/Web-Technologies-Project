@@ -3,9 +3,10 @@ import { NavLink as Link } from 'react-router-dom'
 
 
 export const Nav = styled.nav`
-    margin: -8px;
+    position:fixed;
     background: #144a61;
     height: 60px;
+    width: 100%;
     display: flex;
     padding: 0rem calc((100vw - 700px) / 2);
     z-index: 10;

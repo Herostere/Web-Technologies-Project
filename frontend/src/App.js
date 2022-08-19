@@ -1,8 +1,10 @@
 import './App.css';
+import React from 'react';
 import NavBar from './Components/NavBar';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import HomePage from './Components/HomePage'
 import ProductsPage from './Components/ProductsPage';
+import ServicesApplicationsPage from './Components/ServicesApplicationsPage';
 function App() {
   return (
     <Router>
@@ -10,6 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/Products' element={<ProductsPage/>}/>
+        <Route path='/ServicesApplications' element={<ServicesApplicationsPage/>}/>
       </Routes>
     </Router>
     

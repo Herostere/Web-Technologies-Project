@@ -1,0 +1,83 @@
+.page {
+    background:url('../Assets/Computer-background.jpg')  no-repeat center center fixed;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.tab-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.tab {
+    color: black;
+    background-color: rgb(0,0,0, 0.25);
+    margin-right: 2%;
+    text-align: center;
+    width: 100px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+.active-tab{
+    background:white
+}
+.active-tab::before{
+    content:"";
+    display: block;
+}
+.container{
+    display: none;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    max-width: 1600px;  
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+.basicfield{
+    position: relative;
+    width: 100%;
+    padding: 3% 0 3%;
+    margin-bottom: 2%;
+    background-color: lightseagreen;
+    color: white;
+    text-align: center;
+}
+.leftbloc{
+    margin: auto;
+    width:  400px;
+    height: 600px;
+    background: white;
+    text-align: center;
+    border-radius: 25px;
+}
+.rightbloc{
+    margin: auto;
+    width:  400px;
+    height: 600px;
+    background: white;
+    text-align: center;
+    border-radius: 25px;
+}
+.active-container{
+    display: flex;
+}
+.feature{
+    padding: 3% 0 3%;
+    outline: solid black 1px;
+}
+html, body{
+    margin:0;
+    padding:0;
+}

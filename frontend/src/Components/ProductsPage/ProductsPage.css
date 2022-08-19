@@ -52,11 +52,55 @@ li {
     font-weight: bold;
     margin: 5%;
 }
-ul{
+
+.list1{
     position: relative;
     top: 15%;
+}
+
+.list2{
+    position: relative;
+    top: 15%;
+    margin-bottom: 12%;
+}
 
 
+.buttonlist {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+}
+.firstbutton {
+    background-color: rgb(244, 157, 28);
+    padding: 3% 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.secondbutton {
+    background-color: rgb(244, 157, 28);
+    padding: 3% 3% 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5%;
+    cursor: pointer;
 }
 html, body{
     margin:0;

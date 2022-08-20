@@ -1,0 +1,108 @@
+.productspage {
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    max-width: 1600px;  
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+.title {
+    position: absolute;
+    top: 7%;
+    left: 50%;
+    font-family: Arial, sans-serif;
+    color: rgb(93, 148, 132);
+    font-weight: bold;
+    transform: translate(-50%)
+}
+.cleo {
+    margin: auto;
+    width:  600px;
+    height: 600px;
+    background: rgba(144, 173, 197, .90);
+    text-align: center;
+    border-radius: 25px;
+}
+
+.cles {
+    margin: auto;
+    width:  600px;
+    height: 600px;
+    background: rgba(144, 173, 197, .90);
+    text-align: center;
+    border-radius: 25px;
+}
+h3 { 
+    color: white;
+    font-family: Arial, sans-serif;
+}
+li {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin: 5%;
+}
+
+.list1{
+    position: relative;
+    top: 15%;
+}
+
+.list2{
+    position: relative;
+    top: 15%;
+    margin-bottom: 12%;
+}
+
+
+.buttonlist {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+}
+.firstbutton {
+    background-color: rgb(244, 157, 28);
+    padding: 3% 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.secondbutton {
+    background-color: rgb(244, 157, 28);
+    padding: 3% 3% 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: relative;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+html, body{
+    margin:0;
+    padding:0;
+}

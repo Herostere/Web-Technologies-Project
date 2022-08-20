@@ -1,0 +1,161 @@
+.page {
+    background:url('../Assets/Computer-background.jpg')  no-repeat center center fixed;
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.tab-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.tab {
+    color: black;
+    background-color: rgb(0,0,0, 0.25);
+    margin-right: 2%;
+    text-align: center;
+    width: 100px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3% 0 3%;
+}
+.active-tab{
+    background:white
+}
+.active-tab::before{
+    content:"";
+    display: block;
+}
+.container{
+    display: none;
+    justify-content: space-between;
+    flex-direction: row;
+    position: relative;
+    max-width: 1600px;  
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+.basicfield{
+    position: relative;
+    width: 100%;
+    padding: 3% 0 3%;
+    margin-bottom: 2%;
+    background-color: lightseagreen;
+    color: white;
+    text-align: center;
+}
+
+.personalizedfield{
+    position: relative;
+    width: 100%;
+    padding: 3% 0 3%;
+    margin-bottom: 2%;
+    background-color: #d35a16;
+    color: white;
+    text-align: center;
+}
+
+.advancedfield{
+    position: relative;
+    width: 100%;
+    padding: 3% 0 3%;
+    margin-bottom: 2%;
+    background-color: #c0c231;
+    color: white;
+    text-align: center;
+}
+.leftbloc{
+    margin: auto;
+    width:  400px;
+    height: 600px;
+    background: white;
+    text-align: center;
+    border-radius: 25px;
+    position: relative;
+}
+.rightbloc{
+    margin: auto;
+    width:  400px;
+    height: 600px;
+    background: white;
+    text-align: center;
+    border-radius: 25px;
+    position: relative;
+}
+.active-container{
+    display: flex;
+}
+.feature{
+    padding: 3% 0 3%;
+    outline: solid black 1px;
+}
+.imagefield{
+    position: relative;
+    max-width: 100%;
+    height: 250px;
+    background-image: url('../Assets/wt1.jpg');
+    background-size: 100%100%;
+    margin: 0;
+    padding: 0;
+}
+
+.imagefield2{
+    position: relative;
+    max-width: 100%;
+    height: 250px;
+    background-image: url('../Assets/wt2.jpg');
+    background-size: 100%100%;
+    margin: 0;
+    padding: 0;
+}
+.titlefield{
+    padding: 0% 0 3%;
+}
+.cleobutton {
+    background-color: green;
+    padding: 3% 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    width: 30%;
+    bottom: 0px;
+    margin: 0 0 3%;
+    transform: translate(-50%);
+    cursor: pointer;
+}
+.clesbutton {
+    background-color: green;
+    padding: 3% 3%;
+    margin: 0 0 3%;
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    position: absolute;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    width: 30%;
+    bottom: 0px;
+    transform: translate(-50%);
+    cursor: pointer;
+}
+html, body{
+    margin:0;
+    padding:0;
+}

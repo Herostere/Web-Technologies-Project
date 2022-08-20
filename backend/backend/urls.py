@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rest_framework import routers
-
+from .views import UserCreate
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('create/', UserCreate.as_view(), name='create'),
 ]

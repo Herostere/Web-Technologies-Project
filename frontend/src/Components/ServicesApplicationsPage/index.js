@@ -5,6 +5,9 @@ const [toggleTabs, setToggleTabs] = useState(1)
 const toggleTab = (index) => {
     setToggleTabs(index)
 }
+const select = () => {
+    console.log('select')
+}
   return (
     <div className='page'>
         <div className='tab-container'>
@@ -26,32 +29,36 @@ const toggleTab = (index) => {
                 <div className='titlefield'>  
                     CLEO FOR OSTEOPOROSIS
                 </div>
-                <div className='imagefield'>  
-                    Basic   
-                </div>
+                <div class='imagefield'>     
+                </div> 
                 <div className='feature'>  
                     3D Bone Minerai Density BMD analysis   
                 </div>   
                 <div className='feature'>  
                     3D Tracecular Bone analysis
-                </div>   
+                </div>
+                <button class='cleobutton' type='button' onClick={select}>
+                    Select
+                </button>    
             </div>
             <div className='rightbloc'>
                 <div className='basicfield'>  
                     Basic   
                 </div>     
                 <div className='titlefield'>  
-                    CLEO FOR SCOLIOSIS 
+                    CLES FOR SCOLIOSIS 
                 </div>
-                <div className='imagefield'>  
-                    Basic   
-                </div>      
+                <div class='imagefield2'>     
+                </div>       
                 <div className='feature'>  
                     Vertebra detection   
                 </div>   
                 <div className='feature'>  
                     Vertebra mobility analysis   
-                </div>             
+                </div>
+                <button class='clesbutton' type='button' onClick={select}>
+                    Select
+                </button>              
             </div>
             
         </div>
@@ -64,32 +71,42 @@ const toggleTab = (index) => {
                 <div className='titlefield'>  
                     CLEO FOR OSTEOPOROSIS
                 </div>
-                <div className='imagefield'>  
-                    Basic   
-                </div>
+                <div class='imagefield'>     
+                </div> 
                 <div className='feature'>  
                     3D Bone Minerai Density BMD analysis   
                 </div>   
                 <div className='feature'>  
                     3D Tracecular Bone analysis
-                </div>   
+                </div>
+                <div className='feature'>  
+                    3D Cortical analysis
+                </div>
+                <button class='cleobutton' type='button' onClick={select}>
+                    Select
+                </button>        
             </div>
             <div className='rightbloc'>
                 <div className='advancedfield'>  
                     Advanced   
                 </div>     
                 <div className='titlefield'>  
-                    CLEO FOR SCOLIOSIS 
+                    CLES FOR SCOLIOSIS  
                 </div>
-                <div className='imagefield'>  
-                    Basic   
-                </div>      
+                <div class='imagefield2'>     
+                </div>     
                 <div className='feature'>  
-                    Vertebra detection   
+                    Vertebra detection & Mobility  
                 </div>   
                 <div className='feature'>  
-                    Vertebra mobility analysis   
-                </div>             
+                    Vertebra mobility analysis & Mobility  
+                </div>
+                <div className='feature'>  
+                    Web-parametrized and precise detection
+                </div>
+                <button class='clesbutton' type='button' onClick={select}>
+                    Select
+                </button>                 
             </div>            
         </div>
 
@@ -102,31 +119,54 @@ const toggleTab = (index) => {
                     CLEO FOR OSTEOPOROSIS
                 </div>
                 <div className='imagefield'>  
-                    Basic   
                 </div>
                 <div className='feature'>  
-                    3D Bone Minerai Density BMD analysis   
+                    3D-based Trabecular analysis 
                 </div>   
                 <div className='feature'>  
-                    3D Tracecular Bone analysis
+                    3D-based Cortical analysis
                 </div>   
+                <div className='feature'>  
+                    3D-based Anisotropy computation
+                </div>   
+                <div className='feature'>  
+                    3D visulization and reconstruction
+                </div>   
+                <div className='feature'>  
+                    Progression report
+                </div>
+                <button class='cleobutton' type='button' onClick={select}>
+                    Select
+                </button>       
             </div>
             <div className='rightbloc'>
                 <div className='personalizedfield'>  
                     Personalized   
                 </div>     
                 <div className='titlefield'>  
-                    CLEO FOR SCOLIOSIS 
+                    CLES FOR SCOLIOSIS 
                 </div>
-                <div className='imagefield'>  
-                    Basic   
+                <div class='imagefield2'>     
                 </div>      
                 <div className='feature'>  
-                    Vertebra detection   
+                    Vertebra detection & Mobility 
                 </div>   
                 <div className='feature'>  
-                    Vertebra mobility analysis   
-                </div>             
+                    Spine curve detection & Mobility
+                </div>
+                <div className='feature'>  
+                    Vertebra segmentation & Mobility
+                </div>    
+                <div className='feature'>  
+                    Results analysis & interpretation
+                </div>    
+                <div className='feature'>  
+                    3D analysis & visualization
+                </div>
+                <button class='clesbutton' type='button' onClick={select}>
+                    Select
+                </button>   
+                                 
             </div>            
         </div>
     </div>

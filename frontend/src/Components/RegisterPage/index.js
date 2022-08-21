@@ -31,6 +31,7 @@ const RegisterPage = () => {
         })
     }
     return (
+    
       <div className='registerpage'>
           <div className='registercontainer'>
               <div className='iconfield'>               

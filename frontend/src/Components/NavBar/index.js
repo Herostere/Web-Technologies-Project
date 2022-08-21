@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { LoginContext } from '../../Contexts/GlobalState';
 import { Nav, NavLink } from './NavBarElements';
 
 const NavBar = () => {
+   const {loggedIn, setLoggedIn} = useContext(LoginContext)
   return (
     <>
         <Nav>
@@ -20,12 +22,22 @@ const NavBar = () => {
             <NavLink to="/Contact" activeStyle>
                 Contact
             </NavLink>
-            <NavLink to="/Login" activeStyle>
-                Login
-            </NavLink>
-            <NavLink to="/Register" activeStyle>
-                Register
-            </NavLink>
+            {!loggedIn ? 
+                <NavLink to="/Login" activeStyle>
+                    Login
+                </NavLink>
+                : null}
+            {!loggedIn ? 
+                <NavLink to="/Register" activeStyle>
+                    Register
+                </NavLink>
+                : null}
+            {loggedIn ? 
+                <NavLink to="/Logout" activeStyle>
+                    Logout
+                </NavLink>
+                : null}
+            
         </Nav>
     </>
   );

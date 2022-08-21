@@ -1,12 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import axios from 'axios';
 import './LoginPage.css'
+import { LoginContext } from '../../Contexts/GlobalState';
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-
+    const {loggedIn, setLoggedIn} = useContext(LoginContext)
     const signin = async () => {
         let formField = new FormData()
         formField.append('username', username)
@@ -16,8 +17,12 @@ const LoginPage = () => {
             url: 'http://localhost:8000/api/login/',
             data: formField
         }).then((response) => {
-            console.log(response.data)
-        })
+            setLoggedIn(true)
+        }).catch(
+          err => {
+            window.location.reload()
+          }
+        )
     }
     const lostpassword = () => {console.log("lostpassword")};
     return (

@@ -8,9 +8,14 @@ import ServicesApplicationsPage from './Components/ServicesApplicationsPage';
 import LoginPage from './Components/LoginPage';
 import RegisterPage from './Components/RegisterPage';
 import { LoginContext } from './Contexts/GlobalState';
-
+import { setAuthToken } from './Contexts/setAuthToken';
+const token = localStorage.getItem("token");
+if (token) {
+  setAuthToken(token);
+}
 function App() {
   const [loggedIn, setLoggedIn] = useState(false)
+
   return (
     <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
       <Router>

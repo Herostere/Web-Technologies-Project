@@ -2,6 +2,7 @@ import React, {useState, useContext} from 'react'
 import axios from 'axios';
 import './LoginPage.css'
 import { LoginContext } from '../../Contexts/GlobalState';
+import { setAuthToken } from '../../Contexts/setAuthToken';
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
@@ -17,12 +18,15 @@ const LoginPage = () => {
             url: 'http://localhost:8000/api/login/',
             data: formField
         }).then((response) => {
-            setLoggedIn(true)
-            window.localStorage.setItem("isLoggedIn", true)
+            const token = response.data.token
+            localStorage.setItem("token", token)
+            setAuthToken(token)
+            window.location.href= '/'
+            
             
         }).catch(
           err => {
-            console.log("te")
+            console.log(err)
             window.location.reload()
           }
         )

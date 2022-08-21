@@ -2,13 +2,21 @@ import React, { useContext } from 'react'
 import { LoginContext } from '../../Contexts/GlobalState';
 import { Nav, NavLink } from './NavBarElements';
 
+
 const NavBar = () => {
-   const {loggedIn, setLoggedIn} = useContext(LoginContext)
    const logout = () => {
         console.log('loggingoff')
-        window.localStorage.removeItem("isLoggedIn")
-        setLoggedIn(false)
+        window.localStorage.removeItem("token")
    };
+
+   function hasJWT() {
+    let flag = false;
+
+    //check user has JWT token
+    localStorage.getItem("token") ? flag=true : flag=false
+   
+    return flag
+}
   return (
     <>
         <Nav>
@@ -27,17 +35,17 @@ const NavBar = () => {
             <NavLink to="/Contact" activeStyle>
                 Contact
             </NavLink>
-            {!window.localStorage.getItem("isLoggedIn") ? 
+            {!hasJWT() ? 
                 <NavLink to="/Login" activeStyle>
                     Login
                 </NavLink>
                 : null}
-            {!window.localStorage.getItem("isLoggedIn") ? 
+            {!hasJWT() ? 
                 <NavLink to="/Register" activeStyle>
                     Register
                 </NavLink>
                 : null}
-            {window.localStorage.getItem("isLoggedIn")? 
+            {!hasJWT() ? 
                 <button class='logout' type='button' onClick={logout}>
                     Logout
                 </button>

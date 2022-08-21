@@ -6,6 +6,7 @@ const NavBar = () => {
    const {loggedIn, setLoggedIn} = useContext(LoginContext)
    const logout = () => {
         console.log('loggingoff')
+        window.localStorage.removeItem("isLoggedIn")
         setLoggedIn(false)
    };
   return (
@@ -26,17 +27,17 @@ const NavBar = () => {
             <NavLink to="/Contact" activeStyle>
                 Contact
             </NavLink>
-            {!loggedIn ? 
+            {!window.localStorage.getItem("isLoggedIn") ? 
                 <NavLink to="/Login" activeStyle>
                     Login
                 </NavLink>
                 : null}
-            {!loggedIn ? 
+            {!window.localStorage.getItem("isLoggedIn") ? 
                 <NavLink to="/Register" activeStyle>
                     Register
                 </NavLink>
                 : null}
-            {loggedIn ? 
+            {window.localStorage.getItem("isLoggedIn")? 
                 <button class='logout' type='button' onClick={logout}>
                     Logout
                 </button>

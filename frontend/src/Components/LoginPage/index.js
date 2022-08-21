@@ -18,6 +18,7 @@ const LoginPage = () => {
             data: formField
         }).then((response) => {
             setLoggedIn(true)
+            window.localStorage.setItem("isLoggedIn", true)
             
         }).catch(
           err => {

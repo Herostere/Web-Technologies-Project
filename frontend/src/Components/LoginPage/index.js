@@ -1,8 +1,24 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios';
 import './LoginPage.css'
 
 const LoginPage = () => {
-    const signin = () => {console.log("signing in...")};
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+
+
+    const signin = async () => {
+        let formField = new FormData()
+        formField.append('username', username)
+        formField.append('password', password)
+        await axios({
+            method: 'post',
+            url: 'http://localhost:8000/api/login/',
+            data: formField
+        }).then((response) => {
+            console.log(response.data)
+        })
+    }
     const lostpassword = () => {console.log("lostpassword")};
     return (
       <div className='loginpage'>
@@ -12,13 +28,13 @@ const LoginPage = () => {
               </div>
               <div className='loginfieldcontainer'>
                   <div className='label'>
-                      Username
+                      Email
                   </div>
-                  <input type="text" id="username" name="usernamefield" requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="username" name="usernamefield" onChange={(e) =>setUsername(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
                   <div className='label'>
                       Password
                   </div>
-                  <input type="text" id="password" name="passwordfield" requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="password" name="passwordfield" onChange={(e) =>setPassword(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
               </div>
               <div className='buttoncontainer'>
                 <button class='signin' type='button' onClick={signin}>

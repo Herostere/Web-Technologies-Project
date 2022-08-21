@@ -47,7 +47,7 @@ const RegisterPage = () => {
                   <input type="text" id="lastname" name="lastnamefield" onChange={(e) => setLastname(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
-                      Username
+                      Email
                   </div>
                   <input type="text" id="username" name="usernamefield" onChange={(e) => setUsername(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
 

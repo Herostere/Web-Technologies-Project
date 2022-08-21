@@ -20,7 +20,7 @@ const RegisterPage = () => {
         formField.append('password', password)
         formField.append('title', title)
         formField.append('zip_code', zipcode)
-        formField.append('adress', adress)
+        formField.append('address', adress)
         formField.append('company', company)
         await axios({
             method: 'post',

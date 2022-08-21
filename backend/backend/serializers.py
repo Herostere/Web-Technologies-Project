@@ -20,13 +20,14 @@ class UserSerializer(serializers.ModelSerializer):
         user = User(**data)
 
         # get the password from the data
-        password = make_password(data.get('password'))
-        data["password"] = password
+        password = data.get('password')
 
         errors = dict()
         try:
             # validate the password and catch the exception
             validators.validate_password(password=password, user=user)
+            password = make_password(data.get('password'))
+            data["password"] = password
 
         # the exception raised here is different than serializers.ValidationError
         except exceptions.ValidationError as e:

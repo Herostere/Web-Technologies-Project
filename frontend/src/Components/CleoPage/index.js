@@ -12,14 +12,14 @@ const CleoPage = () => {
       };  
       
     const postinput = () => {
-        const formData = new FormData();
-        formData.append(
-            "myFile",
-            state.selectedFile,
-            state.selectedFile.name
-      );
+      const formData = new FormData();
+      var firstFile = document.querySelector('#myfile2')
+      console.log(state.selectedFile)
+      formData.append("fileName", 'BMDvalues.txt')
+      formData.append("myFile", state.selectedFile);
       const token = window.localStorage.getItem("token")
-      axios.post("api/cleo/", formData, {headers: {"Authorization": "Token ${token}"}});
+      console.log(formData.get("myFile"))
+      axios.post("http://127.0.0.1:8000/api/cleo/", formData, {headers: {"Authorization": "Token " + token}});
   }
   return (
     <div className='cleopage'>

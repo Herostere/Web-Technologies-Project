@@ -4,6 +4,10 @@ import { Nav, NavLink } from './NavBarElements';
 
 const NavBar = () => {
    const {loggedIn, setLoggedIn} = useContext(LoginContext)
+   const logout = () => {
+        console.log('loggingoff')
+        setLoggedIn(false)
+   };
   return (
     <>
         <Nav>
@@ -33,9 +37,9 @@ const NavBar = () => {
                 </NavLink>
                 : null}
             {loggedIn ? 
-                <NavLink to="/Logout" activeStyle>
+                <button class='logout' type='button' onClick={logout}>
                     Logout
-                </NavLink>
+                </button>
                 : null}
             
         </Nav>

@@ -13,6 +13,7 @@ const RegisterPage = () => {
     const [company, setCompany] = useState("")
 
     const RegisterPageInfo = async () => {
+        
         let formField = new FormData()
         formField.append('first_name', firstname)
         formField.append('last_name', lastname)
@@ -28,6 +29,7 @@ const RegisterPage = () => {
             data: formField
         }).then((response) => {
             console.log(response.data)
+            window.location.href = "/Login"
         })
     }
     return (

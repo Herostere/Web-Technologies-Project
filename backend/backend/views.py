@@ -19,7 +19,6 @@ class UserCreate(CreateAPIView):
     permission_classes = [AllowAny]
 
     def post(self, request, *args, **kwargs):
-        print(request.data)
         request.data._mutable = True
         request.data.update({"money": 10})
 

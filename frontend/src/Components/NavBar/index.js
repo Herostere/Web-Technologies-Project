@@ -45,7 +45,7 @@ const NavBar = () => {
                     Register
                 </NavLink>
                 : null}
-            {!hasJWT() ? 
+            {hasJWT() ? 
                 <button class='logout' type='button' onClick={logout}>
                     Logout
                 </button>

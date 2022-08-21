@@ -1,3 +1,4 @@
+from django.contrib.auth.hashers import make_password
 from django.core import exceptions
 from .models import User
 from rest_framework import serializers
@@ -19,7 +20,8 @@ class UserSerializer(serializers.ModelSerializer):
         user = User(**data)
 
         # get the password from the data
-        password = data.get('password')
+        password = make_password(data.get('password'))
+        data["password"] = password
 
         errors = dict()
         try:

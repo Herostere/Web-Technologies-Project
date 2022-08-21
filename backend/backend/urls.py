@@ -14,11 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from .views import UserCreate
+from django.template.defaulttags import url
+from django.urls import path, include
+from knox import views as knox_views
+from .views import UserCreate, UserLogin, UserLogout
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('create/', UserCreate.as_view(), name='create'),
+    path('api/create/', UserCreate.as_view(), name='create'),
+    path('api/login/', UserLogin.as_view(), name='login'),
+    path('api/logout/', UserLogout.as_view(), name='logout'),
 ]

@@ -39,30 +39,30 @@ const RegisterPage = () => {
                   <div className='label'>
                       First Name
                   </div>
-                  <input type="text" id="firstname" name="firstnamefield" onChange={(e) => setFirstname(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="first_name" name="firstnamefield" onChange={(e) => setFirstname(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
                       Last Name
                   </div>
-                  <input type="text" id="lastname" name="lastnamefield" onChange={(e) => setLastname(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="last_name" name="lastnamefield" onChange={(e) => setLastname(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
                       Username
                   </div>
-                  <input type="text" id="username" name="usernamefield" onChange={(e) => setUsername(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="email" name="usernamefield" onChange={(e) => setUsername(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
                       Password
                   </div>
-                  <input type="text" id="password" name="passwordfield" onChange={(e) => setPassword(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="password" name="passwordfield" onChange={(e) => setPassword(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
                     <label for="title">Title</label>
                   </div>
                   <select name="titles" id="title" onSelect={(e) => setTitle(e.target.value)}>
                     <option value="">--Please choose your title--</option>
-                    <option value="man">Man</option>
-                    <option value="female">Female</option>
+                    <option value="MR">Man</option>
+                    <option value="MS">Female</option>
 
                   </select>
 
@@ -70,17 +70,17 @@ const RegisterPage = () => {
                   <div className='label'>
                       Zip code
                   </div>
-                  <input type="text" id="zipcode" name="zipcodefield" onChange={(e) => setZipcode(e.target.name)} requiredminlength="4" maxlength="10" size="12"/>
+                  <input type="text" id="zip_code" name="zipcodefield" onChange={(e) => setZipcode(e.target.name.value)} requiredminlength="4" maxlength="10" size="12"/>
 
                   <div className='label'>
                       Adress
                   </div>
-                  <input type="text" id="adress" name="adressfield" onChange={(e) => setAdress(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="address" name="adressfield" onChange={(e) => setAdress(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
 
                   <div className='label'>
                       Company
                   </div>
-                  <input type="text" id="company" name="companyfield" onChange={(e) => setCompany(e.target.name)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="company" name="companyfield" onChange={(e) => setCompany(e.target.name.value)} requiredminlength="4" maxlength="15" size="17"/>
               </div>
               <div className='buttoncontainer'>
                 <button class='register' type='button' onClick={RegisterPageInfo}>

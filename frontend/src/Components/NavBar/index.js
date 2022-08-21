@@ -39,6 +39,9 @@ const NavBar = () => {
             <NavLink to="/Contact" activeStyle>
                 Contact
             </NavLink>
+            <NavLink to="/Contact" activeStyle>
+                Contact
+            </NavLink>
             {!hasJWT() ? 
                 <NavLink to="/Login" activeStyle>
                     Login
@@ -49,11 +52,7 @@ const NavBar = () => {
                     Register
                 </NavLink>
                 : null}
-<<<<<<< HEAD
-            {hasJWT() ? 
-=======
             {hasJWT() ?
->>>>>>> 60fa6076dfc40ccf6ceb764c338f5a2c969399ae
                 <button class='logout' type='button' onClick={logout}>
                     Logout
                 </button>

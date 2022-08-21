@@ -1,12 +1,16 @@
 import React, { useContext } from 'react'
 import { LoginContext } from '../../Contexts/GlobalState';
 import { Nav, NavLink } from './NavBarElements';
+import axios from 'axios';
 
 
 const NavBar = () => {
    const logout = () => {
         console.log('loggingoff')
+        const token = window.localStorage.getItem("token")
+        axios.post("http://127.0.0.1:8000/api/logout/", {headers: {"Authorization": "Token ${token}"}});
         window.localStorage.removeItem("token")
+        window.location.href="/Login"
    };
 
    function hasJWT() {
@@ -45,7 +49,7 @@ const NavBar = () => {
                     Register
                 </NavLink>
                 : null}
-            {!hasJWT() ? 
+            {hasJWT() ?
                 <button class='logout' type='button' onClick={logout}>
                     Logout
                 </button>

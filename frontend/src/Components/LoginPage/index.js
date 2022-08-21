@@ -18,11 +18,10 @@ const LoginPage = () => {
             url: 'http://localhost:8000/api/login/',
             data: formField
         }).then((response) => {
-            const token = response.data.token
+            const token = response.data.data.token
             localStorage.setItem("token", token)
             setAuthToken(token)
             window.location.href= '/'
-            
             
         }).catch(
           err => {

@@ -18,8 +18,10 @@ const LoginPage = () => {
             data: formField
         }).then((response) => {
             setLoggedIn(true)
+            
         }).catch(
           err => {
+            console.log("te")
             window.location.reload()
           }
         )

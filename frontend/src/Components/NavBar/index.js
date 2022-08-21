@@ -39,9 +39,6 @@ const NavBar = () => {
             <NavLink to="/Contact" activeStyle>
                 Contact
             </NavLink>
-            <NavLink to="/Contact" activeStyle>
-                Contact
-            </NavLink>
             {!hasJWT() ? 
                 <NavLink to="/Login" activeStyle>
                     Login

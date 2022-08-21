@@ -9,6 +9,7 @@ import LoginPage from './Components/LoginPage';
 import RegisterPage from './Components/RegisterPage';
 import { LoginContext } from './Contexts/GlobalState';
 import { setAuthToken } from './Contexts/setAuthToken';
+import CleoPage from './Components/CleoPage';
 const token = localStorage.getItem("token");
 if (token) {
   setAuthToken(token);
@@ -26,6 +27,7 @@ function App() {
         <Route path='/ServicesApplications' element={<ServicesApplicationsPage/>}/>
         <Route path='/Login' element={<LoginPage/>}/>
         <Route path='/Register' element={<RegisterPage/>}/>
+        <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>
       </Router>
     </LoginContext.Provider>

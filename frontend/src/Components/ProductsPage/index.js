@@ -1,7 +1,7 @@
 import React from 'react'
 import './ProductsPage.css'
 const ProductsPage = () => {
-  const tryforfree = () => {console.log("try for free")};
+  const tryforfree = () => {window.location.href = '/ServicesApplications/cleo/'};
   const download = () => {console.log("download")};
   return (
     <div className='productspage'>

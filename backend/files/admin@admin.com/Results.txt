@@ -1,2 +1,0 @@
- 	Voxels	Volume(mm^3)	%Volume	Mean	StdDev	Min	Max	Mode
-1	37004	13.253	100	-175.642	465.168	-1000	666.801	-3.826

@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { LoginContext } from '../../Contexts/GlobalState';
+import React from 'react'
 import { Nav, NavLink } from './NavBarElements';
 import axios from 'axios';
 

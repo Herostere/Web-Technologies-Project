@@ -7,7 +7,6 @@ import ProductsPage from './Components/ProductsPage';
 import ServicesApplicationsPage from './Components/ServicesApplicationsPage';
 import LoginPage from './Components/LoginPage';
 import RegisterPage from './Components/RegisterPage';
-import { LoginContext } from './Contexts/GlobalState';
 import { setAuthToken } from './Contexts/setAuthToken';
 import CleoPage from './Components/CleoPage';
 import ContactPage from './Components/ContactPage'
@@ -17,10 +16,7 @@ if (token) {
   setAuthToken(token);
 }
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-
   return (
-    <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
       <Router>
       <NavBar/>
       <Routes>
@@ -34,11 +30,7 @@ function App() {
 
         <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>
-      </Router>
-    </LoginContext.Provider>
-    
-    
-    
+      </Router>  
   );
 }
 

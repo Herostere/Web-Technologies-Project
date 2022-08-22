@@ -27,7 +27,6 @@ function App() {
         <Route path='/Login' element={<LoginPage/>}/>
         <Route path='/Register' element={<RegisterPage/>}/>
         <Route path='/About' element={<AboutPage/>}/>
-
         <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>
       </Router>  

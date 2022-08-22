@@ -11,6 +11,7 @@ import { setAuthToken } from './Contexts/setAuthToken';
 import CleoPage from './Components/CleoPage';
 import ContactPage from './Components/ContactPage'
 import AboutPage from './Components/AboutPage';
+import ErrorPage from './Components/ErrorPage';
 const token = localStorage.getItem("token");
 if (token) {
   setAuthToken(token);
@@ -27,6 +28,7 @@ function App() {
         <Route path='/Login' element={<LoginPage/>}/>
         <Route path='/Register' element={<RegisterPage/>}/>
         <Route path='/About' element={<AboutPage/>}/>
+        <Route path='/Error' element={<ErrorPage/>}/>
 
         <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>

@@ -1,14 +1,12 @@
-import React, {useState, useContext} from 'react'
+import React, {useState} from 'react'
 import axios from 'axios';
 import './LoginPage.css'
-import { LoginContext } from '../../Contexts/GlobalState';
 import { setAuthToken } from '../../Contexts/setAuthToken';
 
 const LoginPage = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
-    const {loggedIn, setLoggedIn} = useContext(LoginContext)
     const signin = async () => {
         let formField = new FormData()
         formField.append('username', username)

@@ -75,6 +75,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # Other fields
     money = models.PositiveIntegerField(default=10)
+    cleo_license = models.BooleanField(default=False, blank=True)
     TITLES = [('MR', "Monsieur"), ("MS", "Madame")]
     title = models.CharField(max_length=2, choices=TITLES, blank=True)
     zip_code = models.PositiveIntegerField()
@@ -83,6 +84,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     # Custom user manager
     objects = UserManager()
+
+    def get_cleo_license(self):
+        return f"{self.cleo_license}"
 
     def get_full_name(self):
         # Returns the first_name plus the last_name, with a space in between.

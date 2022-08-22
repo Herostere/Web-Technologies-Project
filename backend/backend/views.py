@@ -154,11 +154,42 @@ class UserCheck(APIView):
         return auth_token.user, auth_token
 
 
+class DownloadCleo(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = (IsAuthenticated,)
+
+    def zipdir(self, path, ziph):
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file == "CLEO_V5.jar":
+                    ziph.write(os.path.join(root, file), file)
+
+    def post(self, request):
+        token = request.META.get('HTTP_AUTHORIZATION').split(' ')[1]
+        token = hash_token(token)
+        cleo_license = False if AuthToken.objects.filter(digest=token)[0].user.get_cleo_license() == "False" else True
+        user = AuthToken.objects.filter(digest=token)[0].user.get_username()
+        if cleo_license:
+            directory = os.getcwd()
+            directory_name = fr"{directory}\files\{user}"
+            zip_file = zipfile.ZipFile(rf"{directory_name}\CLEO_V5.zip", 'w', zipfile.ZIP_DEFLATED)
+            os.chdir("../CLEO/")
+            self.zipdir(os.getcwd(), zip_file)
+            zip_file.close()
+            os.chdir("../backend/")
+            return HttpResponse(
+                open(rf"{directory_name}\CLEO_V5.zip", 'rb').read(),
+                content_type="application/zip"
+            )
+            # return Response(None, status=status.HTTP_200_OK)
+        else:
+            return Response(None, status=status.HTTP_403_FORBIDDEN)
+
+
 class RunCleo(APIView):
     # authentication_classes = (TokenAuthentication,)
     authentication_classes = []
     # permission_classes = (IsAuthenticated,)
-    # parser_classes = [MultiPartParser, FormParser]
 
     def zipdir(self, path, ziph):
         for root, dirs, files in os.walk(path):

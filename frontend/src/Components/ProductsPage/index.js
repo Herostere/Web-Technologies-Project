@@ -1,13 +1,35 @@
 import React from 'react'
 import './ProductsPage.css'
 import axios from 'axios';
+import download from 'downloadjs'
+
 const ProductsPage = () => {
+  const formData = new FormData();
   const tryforfree = () => {window.location.href = '/ServicesApplications/cleo/'};
-  const download = () => {
+  const downloadcleo = () => {
     const token = window.localStorage.getItem("token")
-    axios.post("http://127.0.0.1:8000/api/download/", {headers: {"Authorization": "Token " + token}}).then(response => {
-          console.log(response)
-      });
+    axios.post("http://127.0.0.1:8000/api/download/cleo/", formData, {
+                                                                        responseType: 'arraybuffer',
+                                                                        headers: {"Authorization": "Token " + token},
+                                                                     })
+        .then(response => {
+            const content = response.headers['content-type'];
+            download(response.data, "CLEO_V5.zip", content);
+            console.log(response)
+        });
+  };
+
+    const downloadcles = () => {
+    const token = window.localStorage.getItem("token")
+    axios.post("http://127.0.0.1:8000/api/download/cles/", {
+                                                                responseType: 'arraybuffer',
+                                                                headers: {"Authorization": "Token " + token},
+                                                               })
+        .then(response => {
+            const content = response.headers['content-type'];
+            download(response.data, "results.zip", content);
+            console.log(response)
+        });
   };
   return (
     <div className='productspage'>
@@ -27,7 +49,7 @@ const ProductsPage = () => {
                 <button class='firstbutton' type='button' onClick={tryforfree}>
                   Try for free
                 </button>
-                <button class='secondbutton' type='button' onClick={download}>
+                <button class='secondbutton' type='button' onClick={downloadcleo}>
                   Download
                 </button>
               </div>
@@ -43,7 +65,7 @@ const ProductsPage = () => {
                 <button class='firstbutton' type='button' onClick={tryforfree}>
                   Try for free
                 </button>
-                <button class='secondbutton' type='button' onClick={download}>
+                <button class='secondbutton' type='button' onClick={downloadcles}>
                   Download
                 </button>
               </div>

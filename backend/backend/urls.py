@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.template.defaulttags import url
 from django.urls import path, include
 from knox import views as knox_views
-from .views import UserCreate, UserLogin, UserLogout, RunCleo, UserCheck
+from .views import UserCreate, UserLogin, UserLogout, RunCleo, UserCheck, DownloadCleo
 
 
 urlpatterns = [
@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/logout/', UserLogout.as_view(), name='logout'),
     path('api/cleo/', RunCleo.as_view(), name='cleo'),
     path('api/check/login/', UserCheck.as_view(), name='check'),
+    path('api/download/cleo/', DownloadCleo.as_view(), name='download_cleo'),
 ]

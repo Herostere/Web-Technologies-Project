@@ -41,11 +41,11 @@ const LoginPage = () => {
                   <div className='label'>
                       Email
                   </div>
-                  <input type="text" id="username" name="usernamefield" onChange={(e) =>setUsername(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="username" name="usernamefield" onChange={(e) =>setUsername(e.target.value)} requiredminlength="4" maxlength="150" size="17"/>
                   <div className='label'>
                       Password
                   </div>
-                  <input type="text" id="password" name="passwordfield" onChange={(e) =>setPassword(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="password" id="password" name="passwordfield" onChange={(e) =>setPassword(e.target.value)} requiredminlength="4" maxlength="200" size="17"/>
               </div>
               <div className='buttoncontainer'>
                 <button class='signin' type='button' onClick={signin}>

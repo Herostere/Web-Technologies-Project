@@ -39,6 +39,11 @@ input[type="text"]{
     height: 15%;
     outline: solid 1px grey;
 }
+input[type="password"]{
+    width: 80%;
+    height: 15%;
+    outline: solid 1px grey;
+}
 .buttoncontainer{
     position: absolute;
     display: flex;

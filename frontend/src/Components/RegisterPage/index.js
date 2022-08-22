@@ -42,22 +42,22 @@ const RegisterPage = () => {
                   <div className='label'>
                       First Name
                   </div>
-                  <input type="text" id="firstname" name="firstnamefield"  onChange={(e) => setFirstname(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="firstname" name="firstnamefield"  onChange={(e) => setFirstname(e.target.value)} requiredminlength="4" maxlength="20" size="17"/>
 
                   <div className='label'>
                       Last Name
                   </div>
-                  <input type="text" id="lastname" name="lastnamefield" onChange={(e) => setLastname(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="lastname" name="lastnamefield" onChange={(e) => setLastname(e.target.value)} requiredminlength="4" maxlength="20" size="17"/>
 
                   <div className='label'>
                       Email
                   </div>
-                  <input type="text" id="username" name="usernamefield" onChange={(e) => setUsername(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="username" name="usernamefield" onChange={(e) => setUsername(e.target.value)} requiredminlength="4" maxlength="150" size="17"/>
 
                   <div className='label'>
                       Password
                   </div>
-                  <input type="text" id="password" name="passwordfield" onChange={(e) => setPassword(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="password" id="password" name="passwordfield" onChange={(e) => setPassword(e.target.value)} requiredminlength="4" maxlength="200" size="17"/>
 
                   <div className='label'>
                     <label for="title">Title</label>

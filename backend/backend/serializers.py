@@ -9,10 +9,22 @@ import django.contrib.auth.password_validation as validators
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
     money = serializers.HiddenField(default=10)
+    cleo_license = serializers.HiddenField(default=False)
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'password', 'money', 'title', 'zip_code', 'address', 'company')
+        fields = (
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'money',
+            'cleo_license',
+            'title',
+            'zip_code',
+            'address',
+            'company'
+        )
 
     def validate(self, data):
         # here data has all the fields which have validated values

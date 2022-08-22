@@ -5,8 +5,11 @@ const [toggleTabs, setToggleTabs] = useState(1)
 const toggleTab = (index) => {
     setToggleTabs(index)
 }
-const select = () => {
+const selectcleo = () => {
     window.location.href = '/ServicesApplications/cleo/'
+}
+const selectcles = () => {
+    window.location.href = '/ServicesApplications/cles/'
 }
   return (
     <div className='page'>
@@ -37,7 +40,7 @@ const select = () => {
                 <div className='feature'>  
                     3D Tracecular Bone analysis
                 </div>
-                <button class='cleobutton' type='button' onClick={select}>
+                <button class='cleobutton' type='button' onClick={selectcleo}>
                     Select
                 </button>    
             </div>
@@ -56,7 +59,7 @@ const select = () => {
                 <div className='feature'>  
                     Vertebra mobility analysis   
                 </div>
-                <button class='clesbutton' type='button' onClick={select}>
+                <button class='clesbutton' type='button' onClick={selectcles}>
                     Select
                 </button>              
             </div>
@@ -82,7 +85,7 @@ const select = () => {
                 <div className='feature'>  
                     3D Cortical analysis
                 </div>
-                <button class='cleobutton' type='button' onClick={select}>
+                <button class='cleobutton' type='button' onClick={selectcleo}>
                     Select
                 </button>        
             </div>
@@ -104,7 +107,7 @@ const select = () => {
                 <div className='feature'>  
                     Web-parametrized and precise detection
                 </div>
-                <button class='clesbutton' type='button' onClick={select}>
+                <button class='clesbutton' type='button' onClick={selectcles}>
                     Select
                 </button>                 
             </div>            
@@ -135,7 +138,7 @@ const select = () => {
                 <div className='feature'>  
                     Progression report
                 </div>
-                <button class='cleobutton' type='button' onClick={select}>
+                <button class='cleobutton' type='button' onClick={selectcleo}>
                     Select
                 </button>       
             </div>
@@ -163,7 +166,7 @@ const select = () => {
                 <div className='feature'>  
                     3D analysis & visualization
                 </div>
-                <button class='clesbutton' type='button' onClick={select}>
+                <button class='clesbutton' type='button' onClick={selectcles}>
                     Select
                 </button>   
                                  

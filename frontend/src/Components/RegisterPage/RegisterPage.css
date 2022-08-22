@@ -41,6 +41,13 @@ input[type="text"]{
     outline: solid 1px grey;
     padding: 3% 0 3%;
 }
+input[type="password"]{
+    position: relative;
+    width: 80%;
+    height: 0.5px;
+    outline: solid 1px grey;
+    padding: 3% 0 3%;
+}
 select{
     position: relative;
     width: 80%;

@@ -183,6 +183,10 @@ class DownloadCleo(APIView):
         if cleo_license:
             directory = os.getcwd()
             directory_name = fr"{directory}\files\{user}"
+            try:
+                os.mkdir(directory_name)
+            except (FileExistsError, FileNotFoundError):
+                pass
             zip_file = zipfile.ZipFile(rf"{directory_name}\CLEO_V5.zip", 'w', zipfile.ZIP_DEFLATED)
             os.chdir("../CLEO/")
             self.zipdir(os.getcwd(), zip_file)

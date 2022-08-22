@@ -6,7 +6,7 @@ const toggleTab = (index) => {
     setToggleTabs(index)
 }
 const select = () => {
-    console.log('select')
+    window.location.href = '/ServicesApplications/cleo/'
 }
   return (
     <div className='page'>

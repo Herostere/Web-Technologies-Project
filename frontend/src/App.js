@@ -10,6 +10,8 @@ import RegisterPage from './Components/RegisterPage';
 import { LoginContext } from './Contexts/GlobalState';
 import { setAuthToken } from './Contexts/setAuthToken';
 import CleoPage from './Components/CleoPage';
+import ContactPage from './Components/ContactPage'
+import AboutPage from './Components/AboutPage';
 const token = localStorage.getItem("token");
 if (token) {
   setAuthToken(token);
@@ -24,9 +26,12 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/Products' element={<ProductsPage/>}/>
+        <Route path='/Contact' element={<ContactPage/>}/>
         <Route path='/ServicesApplications' element={<ServicesApplicationsPage/>}/>
         <Route path='/Login' element={<LoginPage/>}/>
         <Route path='/Register' element={<RegisterPage/>}/>
+        <Route path='/About' element={<AboutPage/>}/>
+
         <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>
       </Router>

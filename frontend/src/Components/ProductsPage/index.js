@@ -1,8 +1,14 @@
 import React from 'react'
 import './ProductsPage.css'
+import axios from 'axios';
 const ProductsPage = () => {
   const tryforfree = () => {window.location.href = '/ServicesApplications/cleo/'};
-  const download = () => {console.log("download")};
+  const download = () => {
+    const token = window.localStorage.getItem("token")
+    axios.post("http://127.0.0.1:8000/api/download/", {headers: {"Authorization": "Token " + token}}).then(response => {
+          console.log(response)
+      });
+  };
   return (
     <div className='productspage'>
         <div className='title'>

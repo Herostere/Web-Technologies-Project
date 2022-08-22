@@ -1,25 +1,38 @@
 import React, { useState } from 'react'
 import './CleoPage.css'
 import axios from 'axios';
+import download from 'downloadjs'
 
 const CleoPage = () => {
-    const [state, setState] = useState({selectedFile: null})
+    const [state, setState] = useState({selectedFiles: null})
     const onFileChange = event => {
-    
         // Update the state
-        setState({ selectedFile: event.target.files[0] });
-      
+        setState({ selectedFiles: event.target.files });
       };  
       
     const postinput = () => {
       const formData = new FormData();
-      var firstFile = document.querySelector('#myfile2')
-      console.log(state.selectedFile)
-      formData.append("fileName", 'BMDvalues.txt')
-      formData.append("myFile", state.selectedFile);
+      for (let i = 0; i < state.selectedFiles.length; i++) {
+        if (i == 0) {
+          formData.append("firstFileName", state.selectedFiles[i].name)
+          formData.append("firstFile", state.selectedFiles[i]);
+        }
+        else {
+          formData.append("secondFileName", state.selectedFiles[i].name)
+          formData.append("secondFile", state.selectedFiles[i]);
+        }
+
+      }
       const token = window.localStorage.getItem("token")
-      console.log(formData.get("myFile"))
-      axios.post("http://127.0.0.1:8000/api/cleo/", formData, {headers: {"Authorization": "Token " + token}});
+      axios.post("http://127.0.0.1:8000/api/cleo/", formData, {
+                                                                responseType: 'arraybuffer',
+                                                                headers: {"Authorization": "Token " + token},
+                                                               })
+        .then(response => {
+            const content = response.headers['content-type'];
+            download(response.data, "results.zip", content);
+            console.log(response)
+        });
   }
   return (
     <div className='cleopage'>
@@ -55,13 +68,9 @@ const CleoPage = () => {
                 </div>
                 <input type="file" id="myfile1" name="myfile1" onChange={onFileChange}></input>
                 <div className='label'>
-                    Bmd VALUES: (.txt):
+                    Bmd & Phantom VALUES: (.txt):
                 </div>
-                <input type="file" id="myfile2" name="myfile2" onChange={onFileChange}></input>
-                <div className='label'>
-                    Phantom VALUES: (.txt):
-                </div>
-                <input type="file" id="myfile3" name="myfile3" onChange={onFileChange}></input>
+                <input type="file" id="myfile2" name="myfile2" onChange={onFileChange} multiple></input>
                 <button class='result' type='button' onClick={postinput}>
                     Get your Measures
                 </button>

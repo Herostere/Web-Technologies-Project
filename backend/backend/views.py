@@ -1,3 +1,5 @@
+from wsgiref.util import FileWrapper
+
 try:
     from hmac import compare_digest
 except ImportError:
@@ -6,6 +8,7 @@ except ImportError:
 
 from django.contrib.auth import login
 from django.contrib.auth.signals import user_logged_out
+from django.http import HttpResponse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from knox.auth import TokenAuthentication
@@ -22,7 +25,6 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.generics import CreateAPIView
-from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializers import UserSerializer
@@ -30,6 +32,9 @@ from .serializers import UserSerializer
 
 import binascii
 import os
+import shutil
+import subprocess
+import zipfile
 
 
 class UserCreate(CreateAPIView):
@@ -155,6 +160,12 @@ class RunCleo(APIView):
     # permission_classes = (IsAuthenticated,)
     # parser_classes = [MultiPartParser, FormParser]
 
+    def zipdir(self, path, ziph):
+        for root, dirs, files in os.walk(path):
+            for file in files:
+                if file == "Results.txt" or file == "MAO00-20150319-DICOM_Tb.tif":
+                    ziph.write(os.path.join(root, file), file)
+
     def post(self, request):
         ok = self.authenticate(request)
         if ok:
@@ -162,24 +173,56 @@ class RunCleo(APIView):
             token = hash_token(token)
             user = AuthToken.objects.filter(digest=token)[0].user.get_username()
 
-            my_file = request.FILES['myFile']
-            my_file_name = request.data.get("fileName")
+            if len(request.FILES) != 2:
+                return Response(None, status=status.HTTP_400_BAD_REQUEST)
+            check_files_names_1 = request.data.get("firstFileName") != "BMDvalues.txt"
+            check_files_names_2 = request.data.get("secondFileName") != "Phantom1.txt"
+            check_files_names = check_files_names_1 or check_files_names_2
+            if check_files_names:
+                return Response(None, status=status.HTTP_400_BAD_REQUEST)
+
+            first_file = request.FILES['firstFile']
+            second_file = request.FILES['secondFile']
+            first_file_name = request.data.get("firstFileName")
+            second_file_name = request.data.get("secondFileName")
             directory = os.getcwd()
-            directory_name = f"{directory}\\files\\{user}"
+            directory_name = fr"{directory}\files\{user}"
 
             try:
                 os.mkdir(directory_name)
-            except FileExistsError:
+            except (FileExistsError, FileNotFoundError):
                 pass
 
-            file_name = directory_name + "\\" + my_file_name
-            print(file_name)
+            first_file_name = directory_name + "\\" + first_file_name
+            second_file_name = directory_name + "\\" + second_file_name
 
-            with open(file_name, 'wb+') as temp_file:
-                for chunk in my_file.chunks():
+            with open(first_file_name, 'wb+') as temp_file:
+                for chunk in first_file.chunks():
                     temp_file.write(chunk)
 
-            return Response(None, status=status.HTTP_200_OK)
+            with open(second_file_name, 'wb+') as temp_file:
+                for chunk in second_file.chunks():
+                    temp_file.write(chunk)
+
+            os.chdir("../CLEO/")
+            cleo_run = subprocess.Popen(["java", "-jar", r".\CLEO_V5.jar", r".\data\export-0000.dcm",
+                                         rf"..\backend\files\{user}\BMDvalues.txt",
+                                         rf"..\backend\files\{user}\Phantom1.txt"], shell=False,
+                                        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+            cleo_run.wait()
+            shutil.move("./Results.txt", rf"{directory_name}\Results.txt")
+            shutil.move('./MAO00-20150319-DICOM_Tb.tif', rf"{directory_name}\MAO00-20150319-DICOM_Tb.tif")
+            os.chdir(directory)
+
+            zip_file = zipfile.ZipFile(rf"{directory_name}\results.zip", 'w', zipfile.ZIP_DEFLATED)
+            self.zipdir(directory_name, zip_file)
+            zip_file.close()
+
+            # return Response(None, status=status.HTTP_200_OK)
+            return HttpResponse(
+                open(rf"{directory_name}\results.zip", 'rb').read(),
+                content_type="application/zip"
+            )
         return Response(None, status=status.HTTP_403_FORBIDDEN)
 
 

@@ -22,13 +22,13 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path='/' element={<HomePage/>}/>
-        <Route path='/Products' element={<ProductsPage/>}/>
-        <Route path='/Contact' element={<ContactPage/>}/>
-        <Route path='/ServicesApplications' element={<ServicesApplicationsPage/>}/>
-        <Route path='/Login' element={<LoginPage/>}/>
-        <Route path='/Register' element={<RegisterPage/>}/>
-        <Route path='/About' element={<AboutPage/>}/>
-        <Route path='/Error' element={<ErrorPage/>}/>
+        <Route path='/Products/' element={<ProductsPage/>}/>
+        <Route path='/Contact/' element={<ContactPage/>}/>
+        <Route path='/ServicesApplications/' element={<ServicesApplicationsPage/>}/>
+        <Route path='/Login/' element={<LoginPage/>}/>
+        <Route path='/Register/' element={<RegisterPage/>}/>
+        <Route path='/About/' element={<AboutPage/>}/>
+        <Route path='/Error/' element={<ErrorPage/>}/>
         <Route path='/ServicesApplications/cleo/' element={<CleoPage/>}/>
       </Routes>
       </Router>  

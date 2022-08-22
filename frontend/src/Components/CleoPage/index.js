@@ -12,16 +12,20 @@ const CleoPage = () => {
       
     const postinput = () => {
       const formData = new FormData();
-      for (let i = 0; i < state.selectedFiles.length; i++) {
-        if (i == 0) {
-          formData.append("firstFileName", state.selectedFiles[i].name)
-          formData.append("firstFile", state.selectedFiles[i]);
-        }
-        else {
-          formData.append("secondFileName", state.selectedFiles[i].name)
-          formData.append("secondFile", state.selectedFiles[i]);
-        }
-
+      try {
+          for (let i = 0; i < state.selectedFiles.length; i++) {
+            if (i == 0) {
+              formData.append("firstFileName", state.selectedFiles[i].name)
+              formData.append("firstFile", state.selectedFiles[i]);
+            }
+            else {
+              formData.append("secondFileName", state.selectedFiles[i].name)
+              formData.append("secondFile", state.selectedFiles[i]);
+            }
+          }
+      }
+      catch (e) {
+        window.location.href = "/Error/"
       }
       const token = window.localStorage.getItem("token")
       axios.post("http://127.0.0.1:8000/api/cleo/", formData, {
@@ -32,6 +36,8 @@ const CleoPage = () => {
             const content = response.headers['content-type'];
             download(response.data, "results.zip", content);
             console.log(response)
+        }).catch (error => {
+            window.location.href = "/Error/"
         });
   }
   return (

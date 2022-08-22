@@ -29,7 +29,9 @@ const RegisterPage = () => {
             data: formField
         }).then((response) => {
             console.log(response.data)
-            window.location.href = "/Login"
+            window.location.href = "/Login/"
+        }).catch (error => {
+            window.location.href = "/Error/"
         })
     }
     return (
@@ -78,7 +80,7 @@ const RegisterPage = () => {
                   <div className='label'>
                       Adress
                   </div>
-                  <input type="text" id="adress" name="adressfield" onChange={(e) => setAdress(e.target.value)} requiredminlength="4" maxlength="15" size="17"/>
+                  <input type="text" id="adress" name="adressfield" onChange={(e) => setAdress(e.target.value)} requiredminlength="4" maxlength="30" size="17"/>
 
                   <div className='label'>
                       Company

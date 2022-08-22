@@ -21,12 +21,9 @@ const LoginPage = () => {
             setAuthToken(token)
             window.location.href= '/'
             
-        }).catch(
-          err => {
-            console.log(err)
-            window.location.reload()
-          }
-        )
+        }).catch (error => {
+            window.location.href = "/Error/"
+        })
     }
     const lostpassword = () => {console.log("lostpassword")};
     return (

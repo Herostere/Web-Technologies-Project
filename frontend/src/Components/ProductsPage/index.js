@@ -16,6 +16,8 @@ const ProductsPage = () => {
             const content = response.headers['content-type'];
             download(response.data, "CLEO_V5.zip", content);
             console.log(response)
+        }).catch (error => {
+            window.location.href = "/Error/"
         });
   };
 
@@ -29,6 +31,8 @@ const ProductsPage = () => {
             const content = response.headers['content-type'];
             download(response.data, "results.zip", content);
             console.log(response)
+        }).catch (error => {
+            window.location.href = "/Error/"
         });
   };
   return (

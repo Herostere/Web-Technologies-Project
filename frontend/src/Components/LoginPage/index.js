@@ -13,15 +13,16 @@ const LoginPage = () => {
         formField.append('password', password)
         await axios({
             method: 'post',
-            url: 'http://localhost:8000/api/login/',
+            url: 'http://herostere.ddns.net:8000/api/login/',
             data: formField
         }).then((response) => {
+            console.log(response)
             const token = response.data.data.token
             localStorage.setItem("token", token)
             setAuthToken(token)
             window.location.href= '/'
-            
         }).catch (error => {
+            console.log(error)
             window.location.href = "/Error/"
         })
     }

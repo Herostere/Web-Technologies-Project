@@ -4,13 +4,21 @@ import axios from 'axios';
 
 
 const NavBar = () => {
-   const logout = () => {
-        console.log('loggingoff')
+   const logout = async () => {
         const token = window.localStorage.getItem("token")
-        axios.post("http://127.0.0.1:8000/api/logout/", {headers: {"Authorization": "Token ${token}"}});
-        window.localStorage.removeItem("token")
-        window.location.href="/Login"
-   };
+        let formField = new FormData()
+        await axios({
+            method: 'post',
+            url: 'http://herostere.ddns.net:8000/api/logout/',
+            headers: {"Authorization": "Token " + token},
+            data: formField
+        }).then((response) => {
+            window.localStorage.removeItem("token")
+            window.location.href="/Login"
+        }).catch (error => {
+            window.location.href = "/Error/"
+        })
+    }
 
    function hasJWT() {
     let flag = false;

@@ -28,7 +28,7 @@ const CleoPage = () => {
         window.location.href = "/Error/"
       }
       const token = window.localStorage.getItem("token")
-      axios.post("http://127.0.0.1:8000/api/cleo/", formData, {
+      axios.post("http://herostere.ddns.net:8000/api/cleo/", formData, {
                                                                 responseType: 'arraybuffer',
                                                                 headers: {"Authorization": "Token " + token},
                                                                })

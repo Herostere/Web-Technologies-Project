@@ -48,6 +48,15 @@ class UserCreate(CreateAPIView):
 
         return self.create(request, *args, **kwargs)
 
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        headers = self.get_success_headers(serializer.data)
+        headers["Access-Control-Allow-Origin"] = "*"
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+
 
 class UserLogin(KnoxLoginView):
     # authentication_classes = [BasicAuthentication]
@@ -60,8 +69,9 @@ class UserLogin(KnoxLoginView):
 
         login(request, user)
         temp_list = super(UserLogin, self).post(request, format=None)
+        headers = {"Access-Control-Allow-Origin": "*"}
 
-        return Response({"data": temp_list.data})
+        return Response({"data": temp_list.data}, headers=headers)
 
 
 class UserLogout(KnoxLogoutView):
@@ -71,7 +81,8 @@ class UserLogout(KnoxLogoutView):
     def post(self, request, format=None):
         request._auth.delete()
         user_logged_out.send(sender=request.user.__class__, request=request, user=request.user)
-        return Response(None, status=status.HTTP_204_NO_CONTENT)
+        headers = {"Access-Control-Allow-Origin": "*"}
+        return Response(None, status=status.HTTP_204_NO_CONTENT, headers=headers)
 
 
 class UserCheck(APIView):

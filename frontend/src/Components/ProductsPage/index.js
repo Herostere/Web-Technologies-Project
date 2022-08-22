@@ -6,9 +6,10 @@ import download from 'downloadjs'
 const ProductsPage = () => {
   const formData = new FormData();
   const tryforfree = () => {window.location.href = '/ServicesApplications/cleo/'};
+
   const downloadcleo = () => {
     const token = window.localStorage.getItem("token")
-    axios.post("http://127.0.0.1:8000/api/download/cleo/", formData, {
+    axios.post("http://herostere.ddns.net:8000/api/download/cleo/", formData, {
                                                                         responseType: 'arraybuffer',
                                                                         headers: {"Authorization": "Token " + token},
                                                                      })
@@ -23,7 +24,7 @@ const ProductsPage = () => {
 
     const downloadcles = () => {
     const token = window.localStorage.getItem("token")
-    axios.post("http://127.0.0.1:8000/api/download/cles/", {
+    axios.post("http://herostere.ddns.net:8000/api/download/cles/", {
                                                                 responseType: 'arraybuffer',
                                                                 headers: {"Authorization": "Token " + token},
                                                                })

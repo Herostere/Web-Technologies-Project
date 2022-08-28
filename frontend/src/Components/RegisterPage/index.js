@@ -25,7 +25,7 @@ const RegisterPage = () => {
         formField.append('company', company)
         await axios({
             method: 'post',
-            url: 'http://192.168.50.43:8000/api/create/',
+            url: 'http://herostere.ddns.net:8000/api/create/',
             data: formField
         }).then((response) => {
             console.log(response.data)

@@ -13,7 +13,7 @@ const LoginPage = () => {
         formField.append('password', password)
         await axios({
             method: 'post',
-            url: 'http://192.168.50.43:8000/api/login/',
+            url: 'http://herostere.ddns.net:8000/api/login/',
             data: formField
         }).then((response) => {
             console.log(response)

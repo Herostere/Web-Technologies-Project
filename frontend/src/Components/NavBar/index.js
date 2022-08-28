@@ -9,7 +9,7 @@ const NavBar = () => {
         let formField = new FormData()
         await axios({
             method: 'post',
-            url: 'http://192.168.50.43:8000/api/logout/',
+            url: 'http://herostere.ddns.net:8000/api/logout/',
             headers: {"Authorization": "Token " + token},
             data: formField
         }).then((response) => {

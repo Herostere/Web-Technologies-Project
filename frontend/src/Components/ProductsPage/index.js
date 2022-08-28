@@ -9,7 +9,7 @@ const ProductsPage = () => {
 
   const downloadcleo = () => {
     const token = window.localStorage.getItem("token")
-    axios.post("http://192.168.50.43:8000/api/download/cleo/", formData, {
+    axios.post("http://herostere.ddns.net:8000/api/download/cleo/", formData, {
                                                                         responseType: 'arraybuffer',
                                                                         headers: {"Authorization": "Token " + token},
                                                                      })
@@ -24,7 +24,7 @@ const ProductsPage = () => {
 
     const downloadcles = () => {
     const token = window.localStorage.getItem("token")
-    axios.post("http://192.168.50.43:8000/api/download/cles/", {
+    axios.post("http://herostere.ddns.net:8000/api/download/cles/", {
                                                                 responseType: 'arraybuffer',
                                                                 headers: {"Authorization": "Token " + token},
                                                                })
